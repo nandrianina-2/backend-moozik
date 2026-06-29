@@ -1,0 +1,9 @@
+# React / Node
+node_modules/
+build/
+.env
+.DS_Store
+npm-debug.log
+yarn-error.log
+# Local Netlify folder
+.netlify

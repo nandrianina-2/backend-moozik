@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1774349389238,
+    "titre": "Niveau 1 (page 2 sur 12)",
+    "artiste": "Artiste Local",
+    "src": "http://localhost:5000/uploads/1774349389186-Niveau 1 (page 2 sur 12).mp3",
+    "image": "https://api.dicebear.com/7.x/shapes/svg?seed=1774349389186-Niveau 1 (page 2 sur 12).mp3"
+  },
+  {
+    "id": 1774349488019,
+    "titre": "Paradisa - Geoscar",
+    "artiste": "Artiste Local",
+    "src": "http://localhost:5000/uploads/1774349487909-Paradisa - Geoscar.mp3",
+    "image": "https://api.dicebear.com/7.x/shapes/svg?seed=1774349487909-Paradisa - Geoscar.mp3"
+  }
+]
