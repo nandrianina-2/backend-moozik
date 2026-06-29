@@ -10,8 +10,8 @@
  *
  * Variables .env :
  *   ANTHROPIC_API_KEY=sk-ant-...     (analyse de sentiment IA)
- *   BREVO_USER=...
- *   BREVO_PASS=...
+ *   SMTP_USER=...
+ *   SMTP_PASS=...
  *   FRONTEND_URL=https://moozik.app
  */
 
@@ -20,6 +20,7 @@ const router   = express.Router();
 const crypto   = require('crypto');
 // DELETE /stories/:id
 const { fromCloud } = require('../middleware/upload');
+const { sendMail } = require('../utils/mailer');
 
 // Deps optionnelles — ne plantent pas si absentes
 let geoip, UAParser;
@@ -747,18 +748,7 @@ const generateWeeklyReports = async () => {
 
 const sendWeeklyEmail = async (artist, data) => {
   try {
-    let nodemailer; try { nodemailer = require('nodemailer'); } catch { return; }
-    const transporter = nodemailer.createTransport({
-      host:   'smtp-relay.brevo.com',
-      port:   587,
-      secure: false,
-      auth: {
-        user: process.env.BREVO_USER,
-        pass: process.env.BREVO_PASS,
-      },
-    });
-    await transporter.sendMail({
-      from: `MOOZIK <${process.env.BREVO_USER}>`,
+    await sendMail({
       to: artist.email,
       subject: `📊 Votre rapport de la semaine ${data.week}`,
       html: `
